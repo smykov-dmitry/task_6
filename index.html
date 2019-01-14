@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nestoria</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=fd03b2dd-4a9c-4223-a1fe-f561c564776d&lang=en_US" type="text/javascript"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3" id="left-menu">
+            <nav id="sidebar" class="navbar">
+                <div class="sidebar-header">
+                    <!--<h3>Filters</h3>-->
+                </div>
+                <br>
+                <ul class="list-unstyled components">
+                    <p>Select parameters</p>
+                    <li class="filter">
+                        <label>Price (per month)</label><br>
+                        <input type="text" value="0" id="low-price"><br>-<br><input type="text" value="1000" id="high-price">
+                    </li>
+                    <li class="filter">
+                        <label>Bedrooms</label><br>
+                        <input type="text" value="1" id="bedrooms">
+                    </li>
+                    <li class="filter">
+                        <label>Bathrooms</label><br>
+                        <input type="text" value="1" id="bathrooms">
+                    </li>
+                    <li class="filter">
+                        <button class="btn btn-primary" type="button" id="filterButton">Filter</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-9">
+            <div class="container">
+                <form role="form">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="rent-sale" id="rent" value="rent" checked>
+                        <label class="form-check-label" for="rent">to rent</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="rent-sale" id="sale" value="buy">
+                        <label class="form-check-label" for="sale">for sale</label>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-7">
+                            <input type="search" class="form-control" placeholder="e.g. W6, London" id="search">
+                        </div>
+                        <div class="col">
+                            <select class="form-control" id="country">
+                                <option value="https://api.nestoria.com.au">Australia</option>
+                                <option value="https://api.nestoria.com.br">Brasil</option>
+                                <option value="https://api.nestoria.de">Deutschland</option>
+                                <option value="https://api.nestoria.es">España</option>
+                                <option value="https://api.nestoria.fr">France</option>
+                                <option value="https://api.nestoria.in">India</option>
+                                <option value="https://api.nestoria.it">Italia</option>
+                                <option value="https://api.nestoria.mx">Mexico</option>
+                                <option value="https://api.nestoria.co.uk" selected="selected">UK</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-primary" type="button" id="searchButton">Search</button>
+                        </div>
+                    </div>
+                    <div class="form-row" id="sort">
+                        Sort by:
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sorting" id="new-first" value="new" checked>
+                            <label class="form-check-label" for="rent">new first</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sorting" id="cheap-first" value="cheap">
+                            <label class="form-check-label" for="sale">cheap first</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="container" id="content">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-large" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" id="modal-header">
+                <h5 class="modal-title" id="modal-label"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center" id="page-list">
+    </ul>
+</nav>
+<script src="js/script.js"></script>
+</body>
+</html>
