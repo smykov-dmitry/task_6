@@ -1,0 +1,40 @@
+.container .row {
+    margin-top: 1vw;
+}
+
+#house {
+    border-bottom: 1px solid #cde4da;
+}
+
+#left-menu {
+    display: none;
+}
+
+#price {
+    color: #007bff;
+}
+
+.details{
+    color: #007bff;
+}
+
+#map {
+    margin-top: 2vh;
+    width: 30%;
+    height: 30%;
+}
+
+.filter {
+    margin-top: 2.2vh;
+}
+
+.no-result {
+    color: #007bff;
+    margin-top: 10vh;
+    text-align: center;
+}
+
+#sort {
+    margin-top: 2vh;
+    display: none;
+}
